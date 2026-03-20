@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loyalty System</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+
+<h2>Customer Loyalty System</h2>
+
+<input id="id" placeholder="Enter Customer ID">
+<button onclick="check()">Check</button>
+
+<p id="result"></p>
+
+<script>
+let customers = [
+  {id:"AN001", name:"Ramesh", limit:5000, used:2000},
+  {id:"AN002", name:"Suresh", limit:3000, used:1000}
+];
+
+function check(){
+  let id = document.getElementById("id").value;
+  let c = customers.find(x=>x.id==id);
+
+  if(c){
+    document.getElementById("result").innerHTML =
+    "Name: "+c.name+"<br>Total Limit: ₹"+c.limit+
+    "<br>Used: ₹"+c.used+
+    "<br>Remaining: ₹"+(c.limit-c.used);
+  } else {
+    document.getElementById("result").innerHTML = "Customer not found";
+  }
+}
+</script>
+
+</body>
+</html>
